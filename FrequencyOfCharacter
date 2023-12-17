@@ -1,1 +1,20 @@
-F
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class FrequencyOfCharacter {
+
+	public static void main(String[] args) {
+		System.out.println(""+freqOFchar("sandesh"));
+
+	}
+	
+	public static Map<String,Long> freqOFchar(String from) {
+		String[] strSpliteArr =from.split("");
+		Map<String, Long> result=Arrays.asList(strSpliteArr).stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		return result;
+	}
+
+}
+
