@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GroupForNumber {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		
         List<Integer> inputList = Arrays.asList(1,8,2,6,7,2,5,7);
         groupNumberforSum(inputList,9);
