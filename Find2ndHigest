@@ -1,0 +1,34 @@
+package myPack;
+
+public class Find2ndHigest {
+
+	public static void main(String[] args) {
+		
+		int [] numberList = {10,23,45,66,78,99,2,8};
+
+		 System.out.println(" Second Highest  "+secondHightestNumber(numberList));
+		
+	}
+
+	private static int secondHightestNumber(int[] numberList) {
+		// TODO Auto-generated method stub
+		int n= numberList.length;
+		int higestNumber=0;
+		int secondHighest=0;
+		
+		for(int i=0;i<n;i++) {			
+			if(numberList[i]>higestNumber) {
+				higestNumber=numberList[i];
+			}
+		}
+		
+		for(int i=0;i<n;i++) {
+			if(numberList[i]>secondHighest && numberList[i]!=higestNumber) {
+						secondHighest=numberList[i];
+			}
+		}
+			
+		return secondHighest;
+	}
+
+}
