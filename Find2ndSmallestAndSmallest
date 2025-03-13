@@ -1,0 +1,24 @@
+package myPack;
+
+public class Find2ndSmallestAndSmallest {
+
+	public static void main(String[] args) {
+		
+		int [] inputList= {10,20,3,25,30,45,6,8,-1};
+		int n=inputList.length;
+		int smallest= Integer.MAX_VALUE;
+		int secondSmallest= Integer.MAX_VALUE;
+		
+		for(int i=0;i<n;i++) {
+			
+			if(inputList[i]<smallest) {
+				secondSmallest=smallest;
+				smallest=inputList[i];
+			}else if(inputList[i] < secondSmallest && inputList[i] !=smallest){
+			
+				secondSmallest=inputList[i];
+			} 
+		}
+		System.out.println("2nd Smallest : "+secondSmallest+"  Smallest:  "+smallest);
+	}
+}
