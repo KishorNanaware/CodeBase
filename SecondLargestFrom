@@ -1,0 +1,24 @@
+package myPack;
+
+import java.util.Arrays;
+
+public class SecondLargestFrom {
+
+	public static void main(String[] args) {
+		int [] inputArry= {12,35,1,10,34,1,0,36};
+		System.out.println(" 2nd Highest :  "+SecondndHigtestNumber(inputArry));
+	}
+
+	private static int SecondndHigtestNumber(int[] inputArry) {
+		 int n=inputArry.length;
+		 Arrays.sort(inputArry);
+		 
+		 for(int i=n-2;i>=0;i--) {
+			 System.out.println(inputArry[i]+"        "+inputArry[n-1]);
+			 if(inputArry[i]!=inputArry[n-1]) {
+				 return inputArry[i];
+			 }
+		 }
+		return -1;
+	}
+}
