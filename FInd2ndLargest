@@ -1,0 +1,28 @@
+package myPack;
+
+public class FInd2ndLargest {
+
+	public static void main(String[] args) {
+		int [] numberList = {10,20,20,23,22,44};
+		System.out.println("  Second Largest :  "+secondLargest(numberList));
+	}
+
+	private static int secondLargest(int[] numberList) {
+	int n= numberList.length;
+	int highest=0;
+	int secondHighest=0;
+	for(int i=0;i<n;i++) {
+		
+		if(numberList[i]>highest) {
+			secondHighest=highest;
+			highest=numberList[i];
+		}else if(numberList[i]<highest && numberList[i] >secondHighest) {
+			secondHighest=numberList[i];
+			
+		}
+	}
+	
+		return secondHighest;
+	}
+
+}
