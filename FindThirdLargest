@@ -1,0 +1,37 @@
+package myPack;
+
+public class FindThirdLargest {
+
+	public static void main(String[] args) {
+		int [] numberList = {1,2,3,4,5,6,7,8,9,0,11,12};
+		System.out.println("   "+find3rdHighest(numberList));
+	}
+
+	private static String find3rdHighest(int[] numberList) {
+	  int n= numberList.length;
+	  int maxNumber=0;
+	  int secondMax=0;
+	  int thirdMax=0;
+	  
+	  for(int i=0;i<n;i++) {
+		  if(numberList[i]>maxNumber) {
+			  maxNumber=numberList[i];
+		  }
+	  }
+	  
+	  for(int i=0;i<n;i++) {
+		  if(numberList[i]<maxNumber && numberList[i]>secondMax) {
+			  secondMax=numberList[i];
+		  }
+	  }
+	  
+	  for(int i=0;i<n;i++) {
+		  if(numberList[i]<maxNumber && numberList[i]<secondMax  &&  numberList[i]>thirdMax  ) {
+			  thirdMax=numberList[i];
+		  }
+	  }
+	  
+		return  maxNumber+ " "+secondMax+"   "+thirdMax;
+	}
+
+}
