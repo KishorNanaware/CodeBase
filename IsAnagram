@@ -1,0 +1,44 @@
+package myPack;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Anagram {
+
+	public static void main(String[] args) {
+		String str1="Kishor";
+		String str2="shorKi";
+		System.out.println(" Is Anagram  "+IsAnagram(str1,str2));
+	}
+
+	private static boolean IsAnagram(String str1, String str2) {
+		// TODO Auto-generated method stub
+		
+		Map<String,Integer> mapStr1= new HashMap<String,Integer>();
+		Map<String,Integer> mapStr2= new HashMap<String,Integer>();
+		
+		for(int i=0;i<str1.length();i++) {
+			char c= str1.charAt(i);
+			mapStr1.put(""+c,mapStr1.getOrDefault(""+c,0)+1);
+		}
+		
+		for(int i=0;i<str2.length();i++) {
+			char c= str2.charAt(i);
+			mapStr2.put(""+c,mapStr2.getOrDefault(""+c,0)+1);
+		}
+		Integer map1ValueCount=0;
+		for(String e:mapStr1.keySet()) {
+			map1ValueCount+=mapStr1.get(e);
+		}
+		
+		
+		Integer map2ValueCount=0;
+		for(String e:mapStr2.keySet()) {
+			map2ValueCount+=mapStr2.get(e);
+		}
+		if(map1ValueCount==map2ValueCount) {
+			return true;
+		}else 
+		return false;
+	}
+
+}
