@@ -1,0 +1,29 @@
+package myPack;
+
+public class FindSubStringIndex {
+
+	public static void main(String[] args) {
+		String  subString="Name";
+		String parentString="My Name is only have First Name not Number";
+    	findAllIndices(subString,parentString);
+	}
+
+	private static void findAllIndices(String subString, String parentString) {
+	int lastIndex=0;
+	int count =0;
+	System.out.println("-----------");
+	while(lastIndex!=-1) {
+		lastIndex=parentString.indexOf(subString,lastIndex);
+		
+		if(lastIndex!=-1) {
+			if(count>0) {
+				System.out.print(" ,");
+			}
+			System.out.print(lastIndex);
+			lastIndex+=subString.length();
+			count++;
+		}
+	}
+		
+	}
+}
