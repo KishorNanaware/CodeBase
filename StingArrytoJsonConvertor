@@ -1,0 +1,15 @@
+package myPack;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StingArrytoJsonConvertor {
+
+	public static void main(String[] args) {
+
+		List<String> strList =Arrays.asList( "Jai","Hind","Jai","Maharastra");
+		String result=strList.stream().collect(Collectors.joining(",","{","}"));
+		System.out.println("   "+result);
+	}
+}
