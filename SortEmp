@@ -1,0 +1,34 @@
+package myPack;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class SortEmp {
+
+	public static void main(String[] args) {
+		List<Empl> empList = Arrays.asList(
+				new Empl("Kishor",700),
+				new Empl("Vishal",200),
+				new Empl("Ganesh",500));
+		Collections.sort(empList);
+		empList.forEach(e->System.out.println(e.name+"   "+e.salary));
+	}
+}
+
+
+class Empl implements Comparable<Empl>{
+String name;
+int salary;
+
+public  Empl(String name,int salary) {
+	this.name=name;
+	this.salary=salary;
+}
+
+	@Override
+	public int compareTo(Empl e) {
+		return this.salary-e.salary;
+	}
+	
+}
