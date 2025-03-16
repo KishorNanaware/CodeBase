@@ -1,0 +1,27 @@
+package myPack;
+
+public class SubstringPatternFinder {
+
+	public static void main(String[] args) {
+		String parentString="abcdefgabchijkabc";
+		String subString="abc";
+		
+		System.out.println("     "+findIndex(parentString,subString));
+
+	}
+
+	private static String findIndex(String parentString, String subString) {
+		String result="";
+		int lastIndex=0;
+		while(lastIndex!=-1) {
+			lastIndex=parentString.indexOf(subString, lastIndex);
+			if(lastIndex !=-1) {
+				result+=" "+lastIndex;
+				lastIndex+=subString.length();
+			}
+		}
+		
+		return result;
+	}
+
+}
