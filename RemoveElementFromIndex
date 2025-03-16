@@ -1,0 +1,25 @@
+package myPack;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class RemoveElementFromIndex {
+
+	public static void main(String[] args) {
+
+		int [] arr = {1,2,3,4,5,6,7};
+		int k=2;
+		arr= remove(arr,k);
+		System.out.println(Arrays.toString(arr));
+	}
+
+	private static int[] remove(int[] arr, int k) {
+		
+		List<Integer> al = IntStream.of(arr).boxed().collect(Collectors.toList());
+		al.remove(k);
+		return al.stream().mapToInt(Integer::intValue).toArray();
+	}
+
+}
