@@ -1,0 +1,23 @@
+package myPack;
+
+public class FndSubStringIndex {
+
+	public static void main(String[] args) {
+		String subString="Jai";
+		String parentString ="Jai Hind Jai Maharastra";
+		System.out.println("   "+findIndexOfSubString(subString,parentString));
+	}
+
+	private static String findIndexOfSubString(String subString, String parentString) {
+		String res="";
+		int lastIndex=0;
+		while(lastIndex!=-1) {
+			lastIndex=parentString.indexOf(subString, lastIndex);
+			if(lastIndex!=-1) { 
+		    	res+=" "+lastIndex;
+		        lastIndex+=subString.length();
+		    }	
+		}
+		return res;
+	}
+}
