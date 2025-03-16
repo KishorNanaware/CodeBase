@@ -1,0 +1,25 @@
+package myPack;
+
+public class MaxConsecutiveOne {
+
+	public static void main(String[] args) {
+
+		int [] inputArr = {1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1,2,2,2,2,2};
+		System.out.println("  Count of consecutive   : "+findCountOfConsequtive(inputArr));
+	}
+
+	private static int findCountOfConsequtive(int[] inputArr) {
+		int count=0,maxcount=0;
+		
+		for(int i=1;i<inputArr.length;i++) {
+			if(inputArr[i]==inputArr[i-1]) {
+				count++;
+			}else {
+				maxcount=Math.max(count, maxcount);
+				count=1;
+			}
+		}
+		return Math.max(count, maxcount);
+	}
+
+}
