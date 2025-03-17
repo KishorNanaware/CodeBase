@@ -1,0 +1,23 @@
+package myPack;
+
+public class MaxSumSubArr {
+
+	public static void main(String[] args) {
+    int [] inputArr= {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    System.out.println("   "+findMaxSum(inputArr));
+	}
+
+	private static int findMaxSum(int[] inputArr) {
+       int maxSumSoFar=inputArr[0],maxSum=inputArr[0];
+       int n=inputArr.length;
+       
+       for (int i=1;i<n;i++) {
+    	   maxSumSoFar=Math.max(inputArr[i],maxSumSoFar+inputArr[i] );
+    	   System.out.println(maxSumSoFar+"  <-Max Sum So Far = "+inputArr[i]);
+    	   maxSum=Math.max(maxSum, maxSumSoFar);
+    	   
+       }
+		return maxSum;
+	}
+
+}
