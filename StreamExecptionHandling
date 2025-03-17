@@ -1,0 +1,26 @@
+package myPack;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class StreamExecptionHandling {
+
+	public static void main(String[] args) {
+
+		List<String> strList= Arrays.asList("10", "20", "a", "40");
+		List<Integer> intList=
+		
+		strList.stream().map(s->{
+			try {return Integer.parseInt(s);
+			}catch (NumberFormatException e) {
+				
+			}
+			return null;
+			
+		}).filter(value->value!=null).
+		collect(Collectors.toList());
+		
+		
+		System.out.println("   "+intList);
+	}
+
+}
