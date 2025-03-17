@@ -1,0 +1,40 @@
+package myPack;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Anagroups {
+
+	public static void main(String[] args) {
+		 String[] words = {"cat", "dog", "tac", "god", "act", "odg"};
+		 isAnagram(words);
+
+	}
+
+	private static void isAnagram(String[] words) {
+		Map<String,List<String>>  anagramMap= new HashMap<String, List<String>>();
+		for(String word:words) {
+			char [] wordChar=word.toCharArray();
+			Arrays.sort(wordChar);
+			String sortedWord= new String(wordChar);
+			
+			if(!anagramMap.containsKey(sortedWord)) {
+				anagramMap.put(sortedWord, new ArrayList<String>());
+			}
+			
+			anagramMap.get(sortedWord).add(word);
+		}
+		
+		
+		for(List<String> anagramList:anagramMap.values()) {
+			
+			for(String str:anagramList) {
+				System.out.println("  "+str);
+			}
+		}
+	}
+
+}
