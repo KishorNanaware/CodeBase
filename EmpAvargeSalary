@@ -1,0 +1,43 @@
+package myPack;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class EmpAvarageSalary {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		List<Emp> empList = Arrays.asList(
+				new Emp("Kishor ",100,"Male"),
+				new Emp("Amol ",110,"Male"),
+				new Emp("Sachin",120,"Male"),
+				new Emp("vijay ",130,"Male"),
+				new Emp("sandesh ",140,"Male"),
+				new Emp("sarika ",140,"Female"),
+				new Emp("Kiran ",140,"Female")
+				
+				);
+		
+		List<Emp> filterList=empList.stream().filter(e->e.salary>100).collect(Collectors.toList());
+		filterList.forEach(i->System.out.println("  "+i.name));
+		
+		
+		Double maleAverageSalary= empList.stream().filter(e->e.gender.equals("Male")).collect(Collectors.averagingInt(e->e.salary));
+		System.out.println("  "+maleAverageSalary);
+	}
+
+}
+
+class Emp{
+String name;
+int salary;
+String gender;
+
+Emp(String name,int salary,String gender){
+	this.name=name;
+	this.salary=salary;
+	this.gender=gender;
+}
+}
