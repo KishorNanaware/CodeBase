@@ -1,0 +1,28 @@
+package arrayList;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class SwapElementsInArrayList {
+
+	public static void main(String[] args) {
+    List<String> strList  = new ArrayList<String>();
+    
+    strList.add("Item 8");
+    strList.add("Item 1");
+    strList.add("Item 2");
+    strList.add("Item 3");
+    strList.add("Item 4");
+    strList.add("Item 5");
+    strList.add("Item 6");
+    strList.add("Item 7");
+    strList.add("Item 0");
+    
+    System.out.println("" +strList);
+    Collections.swap(strList, 0, 8);
+    System.out.println("-------------------------------" );
+    System.out.print("" +strList);
+	}
+
+}
