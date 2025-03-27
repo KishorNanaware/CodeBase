@@ -1,0 +1,65 @@
+package arrayList;
+
+import java.util.ArrayList;
+import java.util.IntSummaryStatistics;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+
+
+public class StockGroupBy {
+
+	public static void main(String[] args) {
+        List<Stock> stockList= new ArrayList<Stock>();
+        stockList.add(new Stock("Icici", 5));
+        stockList.add(new Stock("Axies", 5));
+        stockList.add(new Stock("HDFC", 5));
+        stockList.add(new Stock("SBI", 5));
+        stockList.add(new Stock("HDFC", 6));
+        stockList.add(new Stock("SBI", 5));
+        stockList.add(new Stock("Icici", 5));
+	
+	Map<String, IntSummaryStatistics> groupByName = stockList.stream()
+	.collect(Collectors.groupingBy(Stock::getName,Collectors.summarizingInt(Stock::getQuantity)));
+	
+	
+	System.out.println("  "+groupByName);
+	
+	Map<String, Map<Integer, Long>> noMapStocksByName = stockList.stream().collect(Collectors.groupingBy(Stock::getName,Collectors.groupingBy(Stock::getQuantity,Collectors.counting())));
+	
+	System.out.println("  "+noMapStocksByName);
+	
+	
+	}
+
+}
+
+
+class Stock {
+	String name;
+	int quantity;
+	
+	public Stock(String name, int quantity) {
+		super();
+		this.name = name;
+		this.quantity = quantity;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+}
