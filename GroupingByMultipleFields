@@ -1,0 +1,133 @@
+package arrayList;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class GroupingByMultipleFields {
+
+	public static void main(String[] args) {
+		List<Employee> employeesList = new ArrayList<>();
+		 
+        employeesList.add(new Employee(101, "Glady", 25_00_000, new GroupBy("Manager", "Male")));
+         
+        employeesList.add(new Employee(102, "Vlad", 15_00_000, new GroupBy("Software Engineer", "Female")));
+        employeesList.add(new Employee(103, "Shine", 20_00_000, new GroupBy("Lead Engineer", "Female")));
+        employeesList.add(new Employee(104, "Nike", 25_00_000, new GroupBy("Manager", "Female")));
+        employeesList.add(new Employee(105, "Slagan", 15_00_000, new GroupBy("Software Engineer", "Male")));
+        employeesList.add(new Employee(106, "Murekan", 15_00_000, new GroupBy("Software Engineer", "Male")));
+        employeesList.add(new Employee(107, "Gagy", 15_00_000, new GroupBy("Software Engineer", "Male")));
+
+        
+        
+       Map<GroupBy, Long> empGroupMap= employeesList.stream().collect(Collectors.groupingBy(Employee::getGroupBy,Collectors.counting()));
+        
+        System.out.println("  "+empGroupMap);
+        
+	}
+
+}
+
+
+class Employee {
+	private int id;
+    private String name;
+    private long salary;
+    private GroupBy groupBy;
+ 
+    public Employee(int id, String name, long salary, GroupBy groupBy) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+        this.groupBy = groupBy;
+    }
+ 
+    // setters and getters
+ 
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", groupBy=" + groupBy + "]";
+    }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public long getSalary() {
+		return salary;
+	}
+
+	public void setSalary(long salary) {
+		this.salary = salary;
+	}
+
+	public GroupBy getGroupBy() {
+		return groupBy;
+	}
+
+	public void setGroupBy(GroupBy groupBy) {
+		this.groupBy = groupBy;
+	}
+}
+
+
+class  GroupBy{
+	private String designation;
+    private String gender;
+ 
+    public GroupBy(String designation, String gender) {
+        super();
+        this.designation = designation;
+        this.gender = gender;
+    }
+ 
+    @Override
+    public int hashCode() {
+        return this.designation.length() + this.gender.length();
+    }
+ 
+    @Override
+    public boolean equals(Object obj) {
+        GroupBy other = (GroupBy) obj;
+        if (other.getDesignation().equals(this.designation) && other.getGender().equals(this.gender))
+            return true;
+        return false;
+    }
+ 
+    public String getDesignation() {
+        return designation;
+    }
+ 
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+ 
+    public String getGender() {
+        return gender;
+    }
+ 
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+ 
+    @Override
+    public String toString() {
+        return "GroupBy [designation=" + designation + ", gender=" + gender + "]";
+    }
+	
+	
+}
