@@ -1,0 +1,33 @@
+package arrayList;
+
+import java.util.NavigableSet;
+import java.util.TreeSet;
+
+public class TreeSetExample {
+
+	public static void main(String[] args) {
+
+		NavigableSet<String> ts = new TreeSet<String>();
+		ts.add("Sachin");
+		ts.add("Sandesh");
+		ts.add("Suresh");
+		ts.add("Ganesh");
+		ts.add("Vijay");
+		ts.add("Sandesh");
+		
+		System.out.println("   "+ts);
+		
+		ts.remove("Suresh");
+		
+		System.out.println("   "+ts);
+		
+		ts.pollLast();
+		
+		System.out.println(" Polllast  "+ts);
+		
+		ts.pollFirst();
+		
+		System.out.println(" Poll Fast  "+ts);
+	}
+
+}
