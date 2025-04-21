@@ -16,4 +16,6 @@ Layered system design
 Root repository
 ![image](https://github.com/user-attachments/assets/12f86552-5a7c-451d-9cf4-fa9e1f690005)
 
+AWS -VPN -Private  /Public Subnet - Gatway- Route table
 
+![image](https://github.com/user-attachments/assets/a6a64845-fdd6-4cc2-9e9e-248fb667368b)
