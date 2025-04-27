@@ -19,3 +19,7 @@ Root repository
 AWS -VPN -Private  /Public Subnet - Gatway- Route table
 
 ![image](https://github.com/user-attachments/assets/a6a64845-fdd6-4cc2-9e9e-248fb667368b)
+
+
+Sagamaker flow
+![image](https://github.com/user-attachments/assets/6a01e6f1-865e-427f-9e5a-4d1e6fcaecd1)
